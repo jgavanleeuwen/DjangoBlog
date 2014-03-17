@@ -1,0 +1,14 @@
+{
+  "name": "django_blog",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {},
+  "devDependencies": {
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-contrib-jshint": "~0.7.2",
+    "grunt-contrib-less": "~0.8.2",
+    "grunt-contrib-requirejs": "~0.4.1",
+    "grunt-contrib-csslint": "~0.1.2",
+    "grunt-csscomb": "^2.0.1"
+  }
+}

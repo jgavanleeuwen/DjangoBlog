@@ -1,0 +1,43 @@
+
+/* MENU */
+@media screen and (max-width: 767px) {
+	#categories {
+		display: none;
+	}
+
+	.main {
+		width: 100%;
+		display: block;
+		position: relative;
+		right: inherit;
+		
+	}
+
+	.navbario {
+		display: none;
+	}
+
+	.collapse {
+		margin-left: -300px;
+		height: auto!important;
+		.transition();
+
+		&.in {
+			margin-left: 0;
+			display: block;
+			height: auto!important;
+
+			.navbar-fixed-top {
+				margin-left: 0;
+				right: 0;
+			}
+			
+		}
+		.navbar-fixed-top {
+			.transition();
+			margin-left: -300px;
+			right: 300px;
+		}
+	}
+		
+}

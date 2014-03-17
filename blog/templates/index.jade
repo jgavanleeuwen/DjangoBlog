@@ -1,0 +1,52 @@
+{% extends 'base.jade' %}
+{% block title %}Welcome to my blog{% endblock %}
+
+{% block content %}
+
+section#hero.hero.js-parallax
+
+section#categories
+    .container
+        center
+            ul.row.categories
+                {% for category in categories %}
+                li.category
+                    a(href="{{ category.get_absolute_url }}") {{ category.title }}
+                {% endfor %}
+
+
+section#blogrole
+
+    {% if posts %}
+    .posts
+        {% for post in posts %}
+        article.post
+            .container
+                .col-md-12
+                    center
+                        a.post-title(href="{{ post.get_absolute_url }}")
+                            | {{ post.title }}
+                    hr
+                .col-md-10.col-md-offset-1
+                    center
+                        p {{ post.body }}
+                .col-md-12
+                    center
+                        a.btn.btn-readmore(href="#") Read more
+
+        {% endfor %}
+        {% else %}
+        p
+            | There are no posts.
+    {% endif %}
+
+section#load.readmore
+    .container
+        .row
+            .col-md-12
+                center
+                    a(href="#") Read more 
+                        span >
+
+
+{% endblock %}

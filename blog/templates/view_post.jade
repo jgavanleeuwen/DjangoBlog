@@ -1,0 +1,21 @@
+{% extends 'base.jade' %} 
+{% block head_title %}{{ post.title }}{% endblock %}
+{% block title %}{{ post.title }}{% endblock %}
+
+{% block content %}
+section#post.post
+    article.post.large
+        .container
+            .row
+                center
+                    img(src="http://4.bp.blogspot.com/-KuIuf3DziKA/Utufbl83r1I/AAAAAAAAAh4/NeJhulC6NOU/s1600/grunt.png", width="200").img-responsive.post-img
+            .row
+                .col-md-12
+                    center
+                        a.post-title(href="{{ post.get_absolute_url }}")
+                            | {{ post.title }}
+                    hr
+                .col-md-8.col-md-offset-2
+                    center
+                        p {{ post.body }}
+{% endblock %}

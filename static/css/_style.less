@@ -1,0 +1,254 @@
+
+/* IMPORT */
+@import '_mixins';
+@import '_variables';
+@import '_menu';
+
+body {
+	background: #FFF;
+}
+
+/* NAVIGATION */
+.navbar-inverse {
+	background: @red_main!important;
+	border: none!important;
+	padding: 25px 0;
+
+	.navbar-brand {
+		font-family: 'Lobster';
+		font-size: 2em;
+		color: white!important;
+	}
+
+	.navbar-toggle {
+		border:none;
+
+		&:hover {
+			background-color: inherit;
+		}
+	}
+
+	.nav {
+		li {
+			& > a {
+				border: none;
+				font-family: "museo-slab";
+				color: white!important;
+				font-size: 18px;
+			}
+
+			ul {
+				a {
+					color: #666!important;
+					font-size: 14px;
+				}
+			}
+
+			&.open {
+				& > a, & > a:focus, & > a:hover {
+					color: white!important;
+					background-color: darken(@red_main, 20);
+					border: none;
+				}
+			}
+		}
+	}
+}
+
+/* SPECIALS */
+.toggle {
+  visibility: hidden;
+  position: absolute;
+  left: -9999px;
+}
+
+.hamburger {
+  top: 50%;
+  left: 50%;
+  margin: 1px 10px 3px -12px;
+  display: block;
+  width: 24px;
+  height: 12px;
+  position: relative;
+  .transition();
+  cursor: pointer;
+}
+
+.hamburger i {
+  display: block;
+  text-indent: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  height: 2px;
+  background-color: white;
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  .transition();
+  transition-delay: .2s;
+}
+
+.hamburger:after, .hamburger:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  height: 0;
+  border-bottom: 2px solid white;
+  width: 100%;
+  left: 0;
+  right: 0;
+  .transition(.5s, cubic-bezier(0.680, -0.550, 0.265, 1.550));
+  .transform-origin(left top);
+}
+
+.hamburger:after {
+  top: 100%;
+  transform-origin: left bottom;
+}
+
+.toggle:checked + .hamburger i {
+  opacity: 0;
+  transition-delay: 0;
+}
+
+.toggle:checked + .hamburger:after {
+  .transform(rotate3d(0,0,1,-45deg) translate3d(0,4px,0));
+}
+
+.toggle:checked + .hamburger:before {
+  .transform(rotate3d(0,0,1,45deg) translate3d(0,-4px,0));
+}
+
+/* HERO */
+.hero {
+	height: 600px;
+	background: url('/static/img/hero.jpg') center center;
+	background-size: 1600px;
+}
+
+/* CATEGORIES */
+ul.categories {
+	padding: 20px 0 15px 0;
+	li {
+		list-style: none;
+		display: inline;
+		margin: 0 40px;
+
+		a {
+			font-family: "museo-slab";
+			font-size: 1.35em;
+			font-weight: 100;
+			color: lighten(#000, 60);
+
+			&:hover {
+				text-decoration: none;
+				color: lighten(#000, 30);
+			}
+		}
+	}
+}
+
+
+/* BLOGROLE */
+.post {
+	padding: 75px 0;
+	overflow: hidden;
+
+	&:nth-child(odd) {
+		background: #EFEFEF;
+	}
+	&:nth-child(even) {
+		background: #FAFAFA;
+	}
+	
+
+	.post-title {
+		font-family: "museo-slab";
+		font-size: 2.4em;
+		color: #333;
+
+		&:hover {
+			text-decoration: none;
+		}
+	}
+
+	p {
+		line-height: 1.8em;
+		font-size: 18px;
+		font-family: "Open Sans", sans-serif;
+		font-weight: 100;
+		margin: 20px 0;
+	}
+
+	hr {
+		border-top: solid @red_main 1px;
+		width: 200px;
+		margin: 35px auto;
+
+		&:after {
+			content: "";
+			display: block;
+			width: 20px;
+			height: 20px;
+			background: url('/static/img/ribbon_red.svg') no-repeat;
+			margin: 0 auto;
+			border:none;
+		}
+	}
+
+	a.btn-readmore {
+		border: solid @red_main 2px;
+		border-radius: 5px;
+		color: @red_main;
+		margin-top: 15px;
+
+		&:hover {
+			background: @red_main;
+			color: white;
+		}
+	}
+
+	.post-img {
+		width: 200px;
+		margin-bottom: 20px;
+	}
+
+	&.large {
+		background: none;
+
+		.post-title {
+			font-family: "museo-slab";
+			font-size: 3em;
+		}
+
+	}
+}
+
+/* BOTTOM */
+.readmore {
+	background: #EFEFEF;
+	padding: 40px 0;
+
+	a {
+		font-size: 2em;
+		font-family: "museo-slab";
+		color: lighten(#000, 60);
+		font-weight: 100;
+
+		&:hover {
+			text-decoration: none;
+			color: lighten(#000, 30);
+		}
+	}
+}
+
+/* FOOTER */
+.footer {
+	padding: 30px 0;
+	background: darken(@red_main, 5);
+}
+
+
+
+/* RESPONSIVE */
+@import '_responsive';
